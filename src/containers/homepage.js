@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Canvas from "../components/canvas.js";
 
 class HomePage extends Component {
   constructor(props) {
@@ -10,8 +11,7 @@ class HomePage extends Component {
       <div>
         <body>
           <h1>Web Gl</h1>
-          <canvas id="glCanvas" width="640" height="480" />
-          <p>Canvas element</p>
+          <Canvas />
         </body>
       </div>
     );

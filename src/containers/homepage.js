@@ -40,42 +40,4 @@ class HomePage extends Component {
   }
 }
 
-// const CountryDetail = ({country}) => {
-//   if(!country){
-//     return <h3>No country</h3>
-//   }
-//   return(
-//     <h3>
-//     { country.name }
-//     </h3>
-//   )
-// }
-
-// main() {
-//   const canvas = document.querySelector("#glCanvas");
-//   const gl = canvas.getContext("webgl");
-//   if (!gl) {
-//     alert(
-//       "Unable to initialize WebGL. Your browser or machine may not support it."
-//     );
-//     return;
-//   }
-//   gl.clearColor(0.0, 0.0, 0.0, 1.0);
-//   gl.clear(gl.COLOR_BUFFER_BIT);
-// };
-
 export default HomePage;
-
-// render() {
-// main = () => {
-//   const canvas = document.querySelector("#glCanvas");
-//   const gl = canvas.getContext("webgl");
-//   if (!gl) {
-//     alert(
-//       "Unable to initialize WebGL. Your browser or machine may not support it."
-//     );
-//     return;
-//   }
-//   gl.clearColor(0.0, 0.0, 0.0, 1.0);
-//   gl.clear(gl.COLOR_BUFFER_BIT);
-// };

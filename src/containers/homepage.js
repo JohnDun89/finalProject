@@ -95,25 +95,36 @@ class HomePage extends Component {
 
     camera.position.z = 650;
     // camera.position.y = 120;
+    function onDocumentMouseMove(event) {
+      console.log("Mouse Move! ");
+
+      mouseX = (event.clientX - windowHalfX) / 2;
+      mouseY = (event.clientY - windowHalfY) / 2;
+    }
 
     function animate() {
       requestAnimationFrame(animate);
-
-      if (chicken) {
-        chicken.rotation.y += 0.0;
-        chicken.rotation.x += 0.0;
-      }
-      document.addEventListener("mousemove", onDocumentMouseMove, false);
-
-      function onDocumentMouseMove(event) {
-        console.log("Mouse Move! ");
-
-        mouseX = (event.clientX - windowHalfX) / 2;
-        mouseY = (event.clientY - windowHalfY) / 2;
-      }
-
-      renderer.render(scene, camera);
+      renderPosition();
     }
+    function renderPosition() {
+      camera.position.x += (mouseX - camera.position.x) * 0.05;
+      camera.position.y += (-mouseY - camera.position.y) * 0.05;
+      camera.lookAt(scene.position);
+      renderer.render(scene, camera);
+      document.addEventListener("mousemove", onDocumentMouseMove, false);
+    }
+
+    // function animate() {
+    //   requestAnimationFrame(animate);
+
+    //   if (chicken) {
+    //     chicken.rotation.y += 0.0;
+    //     chicken.rotation.x += 0.0;
+    // renderer.render(scene, camera);
+
+    //   }
+    // }
+
     animate();
   }
 

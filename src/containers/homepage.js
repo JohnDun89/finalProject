@@ -23,6 +23,11 @@ class HomePage extends Component {
   componentDidMount() {
     //scene code
 
+    var mouseX = 0,
+      mouseY = 0;
+    var windowHalfX = window.innerWidth / 2;
+    var windowHalfY = window.innerHeight / 2;
+
     const scene = new window.THREE.Scene();
 
     var camera = new window.THREE.PerspectiveCamera(
@@ -38,6 +43,13 @@ class HomePage extends Component {
     var windowHalfY = window.innerHeight / 2;
 
     // texture
+
+    var manager = new window.THREE.LoadingManager();
+    manager.onProgress = function(item, loaded, total) {
+      console.log(item, loaded, total);
+    };
+    var textureLoader = new window.THREE.TextureLoader(manager);
+    var texture = textureLoader.load("textures/UV_Grid_Sm.jpg");
     var manager = new window.THREE.LoadingManager();
     manager.onProgress = function(item, loaded, total) {
       console.log(item, loaded, total);
@@ -94,6 +106,8 @@ class HomePage extends Component {
       document.addEventListener("mousemove", onDocumentMouseMove, false);
 
       function onDocumentMouseMove(event) {
+        console.log("Mouse Move! ");
+
         mouseX = (event.clientX - windowHalfX) / 2;
         mouseY = (event.clientY - windowHalfY) / 2;
       }
@@ -115,6 +129,3 @@ class HomePage extends Component {
 }
 
 export default HomePage;
-
-// <canvas id="glCanvas" width="640" height="480" />
-// <p>Canvas element</p>
